@@ -1,0 +1,229 @@
+Networking Topic:
+Vpc(Virutual Private Cloud)
+----------------------------------
+A Virtual Private Cloud (VPC) is a logically isolated network in the cloud where you can launch and manage your 
+resources, such as EC2 instances, RDS databases, and other services. It gives you control over network settings, such
+as IP address ranges, subnets, routing, and security.
+
+Here’s the VPC overview with the asterisks removed:
+
+---
+
+### 1. Subnets  
+Definition: Subnets divide the VPC into smaller segments, each associated with a specific availability zone (AZ).  
+Types:  
+- Public Subnets: Accessible from the internet. Typically used for resources like web servers.  
+- Private Subnets: No direct internet access. Used for backend systems like databases.  
+
+---
+
+### 2. Route Tables  
+Definition: A route table determines how traffic is directed within the VPC.  
+Key Points:  
+- Each subnet is associated with one route table.  
+- Contains routes to internal subnets, the internet gateway, and other destinations.  
+
+---
+
+### 3. Internet Gateway (IGW)  
+Definition: A component that allows communication between resources in your VPC and the internet.  
+Key Points:  
+- Only public subnets use the IGW.  
+- Must attach an IGW to the VPC for internet connectivity.  
+
+---
+
+### 4. NAT Gateway/Instance  
+Definition: Allows instances in private subnets to initiate outbound traffic to the internet while remaining inaccessible from the internet.  
+Types:  
+- NAT Gateway: Managed service, scalable, and reliable.  
+- NAT Instance: A manually configured EC2 instance performing NAT functionality.  
+
+---
+
+### 5. Security Groups  
+Definition: Acts as a virtual firewall for resources in the VPC.  
+Key Points:  
+- Controls inbound and outbound traffic to resources.  
+- State-based: Replies to allowed requests are automatically permitted.  
+
+---
+
+### 6. Network Access Control Lists (NACLs)  
+Definition: An optional layer of security at the subnet level.  
+Key Points:  
+- Stateless: Rules are applied to both inbound and outbound traffic independently.  
+- Provides broader control compared to security groups.  
+
+---
+
+### 7. Elastic IPs (EIPs)  
+Definition: Static public IP addresses used for persistent internet access.  
+Key Points:  
+- Assigned to resources like NAT Gateways or EC2 instances in public subnets.  
+
+---
+
+### 8. Endpoints  
+Definition: Enables private connections between VPC resources and AWS services without needing an IGW.  
+Types:  
+- Gateway Endpoints: For S3 and DynamoDB.  
+- Interface Endpoints: Uses AWS PrivateLink for other services.  
+
+---
+
+### 9. Peering Connections  
+Definition: Connects two VPCs for intercommunication without traversing the internet.  
+Key Points:  
+- Can connect VPCs in the same or different AWS accounts.  
+- No transitive peering (A → B and B → C doesn’t mean A → C).  
+
+---
+
+### 10. VPN Gateway  
+Definition: Connects your VPC to an on-premises network securely over a VPN.  
+Key Points:  
+- Uses IPSec tunnels.  
+- Requires a Virtual Private Gateway on the VPC side and a Customer Gateway on the on-premises side.  
+
+---
+
+### 11. Transit Gateway  
+Definition: A central hub for connecting multiple VPCs and on-premises networks.  
+Key Points:  
+- Simplifies complex network architectures.  
+- Allows transitive routing between connected networks.  
+
+---
+
+### 12. Elastic Load Balancer (ELB)  
+Definition: Distributes incoming traffic across multiple resources in your VPC.  
+Key Points:  
+- Operates in public or private subnets.  
+- Integrates with Auto Scaling groups.  
+
+---
+
+### VPC Benefits  
+- Complete control over network configurations.  
+- Logical isolation of resources for enhanced security.  
+- Customizable IP address ranges.  
+- Secure communication with on-premises data centers.  
+
+Let me know if you need additional details or edits.
+
+ip address 
+
+system/server/laptop/mobile....
+
+ip4 : xx.xx.xx.xx  34.54.65.78
+ip6 : xxx.xxx.xxx.xxx.xxx.xxx
+
+ip4 ---> 32 bit address
+ip6 ---> 128 bit address  
+
+ip6 format
+
+0-255:0-255:0-255:0-255
+
+0-000  -->2^2*0+2^1*0+2^0*0 = 0+0+0 0
+1-001  -->2^2*0+2^1*0+2^0*1 = 0+0+0 1
+2-010
+3-011
+4-100
+5-101
+6-110
+7-111
+
+8-1000
+
+
+
+class A
+class B
+class C
+class D
+class E
+
+
+0.0.0.0
+0.0.0.1
+0.0.0.2
+.
+.
+.
+.
+0.0.255.0
+
+0.0.1.0
+0.0.2.0
+.
+.
+.
+0.0.255.0
+.
+.
+.
+256*256*256*256
+65536*65536
+
+public ip -- unique
+private ip --
+
+
+1.1.1.0/24  : 32-24=8 --> 2^8=256 ip address we get
+
+========================================================================================================
+=========================================================================================================
+vpc - some range of ip address 
+subnet- subset of vpc
+
+
+Regions: mumbai, us-east-1
+avalability zones: us-east-1a, us-east-1b,1c
+
+vpc
+subnet
+internet gateway
+nat gateway 
+Route table
+
+
+security groups
+Nacl(network access control list)
+
+Nat gateway
+EIP
+
+public subnet
+private subnet 
+
+vpc peering
+-------------------------------------
+
+1.create Vpc test-vpc-1 (ip4-CIDR range -12.0.0.0/16)
+2.create Vpc test-vpc-2 (ip4-CIDR range -13.0.0.0/16)
+3.create route table test-rt-vpc-1 , test-rt-vpc-2 (attach related vpcs)
+4.create subnet test-subner-vpc-1 (CIDR-12.0.1.0/24)
+5.create subnet test-subnet-vpc-2 (CIDR-13.0.1.0/24)
+6.attach test-subner-vpc-1,2 related route table
+7.create internet gateway test-ig-vpc-1,2 attach releate route table.
+8. create vpc peering and accept that one.
+9.routes has to modified with vpc peering .
+ 
+
+
+
+	
+
+tasks:
+-----------------------------------------------
+create sample vpc , subnet, natgateway, route table and allow all traffic in route table
+
+
+
+
+
+
+
+
