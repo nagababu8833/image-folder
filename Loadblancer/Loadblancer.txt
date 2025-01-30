@@ -8,6 +8,7 @@ traffic across multiple targets to ensure high availability, fault tolerance, an
    - Ideal for **microservices and containerized applications** (works well with ECS & EKS)
    - Supports **WebSockets & gRPC**
    - Supports **authentication & SSL termination**
+   - round robin algorithm
 
 2. **Network Load Balancer (NLB)**
    - Works at **Layer 4 (TCP/UDP/TLS)**
