@@ -16,6 +16,7 @@ traffic across multiple targets to ensure high availability, fault tolerance, an
    - Supports **extreme performance & low latency**
    - Can handle **millions of requests per second**
    - Ideal for **real-time applications & gaming** with UDP support
+   - least out standing algoritm
 
 3. **Gateway Load Balancer (GWLB)**
    - Works at **Layer 3 (IP)**
