@@ -1,0 +1,57 @@
+AWS offers different types of **Load Balancers** through **Elastic Load Balancing (ELB)** to distribute incoming 
+traffic across multiple targets to ensure high availability, fault tolerance, and scalability.
+
+## **Types of AWS Load Balancers**
+1. **Application Load Balancer (ALB)**
+   - Works at **Layer 7 (HTTP/HTTPS)**
+   - Routes requests based on **URL paths, host headers, query parameters, and HTTP headers**
+   - Ideal for **microservices and containerized applications** (works well with ECS & EKS)
+   - Supports **WebSockets & gRPC**
+   - Supports **authentication & SSL termination**
+
+2. **Network Load Balancer (NLB)**
+   - Works at **Layer 4 (TCP/UDP/TLS)**
+   - Routes traffic based on **IP and port**
+   - Supports **extreme performance & low latency**
+   - Can handle **millions of requests per second**
+   - Ideal for **real-time applications & gaming** with UDP support
+
+3. **Gateway Load Balancer (GWLB)**
+   - Works at **Layer 3 (IP)**
+   - Primarily used for **third-party virtual appliances** (firewalls, IDS/IPS, deep packet inspection)
+   - Helps deploy **network security solutions**
+   - Supports **auto-scaling of security appliances**
+
+4. **Classic Load Balancer (CLB) (Legacy)**
+   - Works at **both Layer 4 & Layer 7** but lacks advanced features of ALB/NLB
+   - Mostly **deprecated in favor of ALB/NLB**
+
+---
+
+## **Key Features of AWS Load Balancers**
+✅ **Auto Scaling**: Automatically distributes traffic across healthy instances  
+✅ **Health Checks**: Monitors instance health and routes traffic only to healthy targets  
+✅ **Security**: Works with **AWS WAF**, **AWS Shield**, and integrates with **IAM roles**  
+✅ **Cross-Zone Load Balancing**: Distributes traffic across multiple Availability Zones  
+✅ **SSL/TLS Termination**: Offloads SSL processing to the load balancer  
+✅ **Sticky Sessions**: Ensures a user session stays connected to the same backend  
+✅ **Logging & Monitoring**: Integrated with **CloudWatch, VPC Flow Logs, and AWS X-Ray**  
+
+---
+
+## **Use Cases**
+- **ALB** → Websites, APIs, and containerized apps  
+- **NLB** → High-performance applications, IoT, and gaming  
+- **GWLB** → Security appliances like firewalls, IPS/IDS  
+- **CLB** (Legacy) → Older applications that still rely on it  
+
+---
+
+## **Integration with AWS Services**
+- **Amazon EC2**: Load balance across multiple EC2 instances  
+- **Amazon ECS & EKS**: Works seamlessly with Docker containers and Kubernetes  
+- **AWS Lambda**: ALB supports direct invocation of Lambda functions  
+- **Amazon RDS**: Distributes read traffic across RDS instances using **NLB**  
+- **AWS Global Accelerator**: Enhances performance with global traffic routing  
+
+Would you like guidance on **setting up a Load Balancer in AWS**, **configuring SSL**, or **troubleshooting issues**? 🚀
