@@ -1,3 +1,4 @@
+```
 #!/bin/bash
 # Update the system
 yum update -y
@@ -27,3 +28,4 @@ stress --cpu 4 --timeout 600s &
 
 # Restart httpd to serve the new page
 systemctl restart httpd
+```
