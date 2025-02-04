@@ -1,0 +1,151 @@
+Here's a cleaner version of your AWS CloudWatch notes without asterisks:
+
+---
+
+## AWS CloudWatch Overview  
+AWS CloudWatch is a monitoring and observability service that provides data and actionable insights for AWS resources, applications, and 
+services in real time.
+
+### Key Features  
+1. Metrics – Collects and monitors performance data from AWS services.  
+2. Logs – Captures, stores, and analyzes logs from AWS and on-premise environments.  
+3. Alarms – Triggers automated actions based on predefined thresholds.  
+4. Dashboards – Provides visualization of metrics and logs.  
+5. Events (Amazon EventBridge) – Automates responses to system changes.  
+6. ServiceLens – Traces and monitors application performance.  
+7. Synthetics – Monitors APIs and web applications using canary scripts.  
+8. Contributor Insights – Analyzes patterns in log data for troubleshooting.  
+
+---
+
+## CloudWatch Metrics  
+- Metrics are time-series data that measure the performance of AWS resources.  
+- Metrics have namespaces (e.g., AWS/EC2, AWS/RDS, AWS/Lambda).  
+- Data retention:  
+  - 1-minute data: 15 days  
+  - 5-minute data: 63 days  
+  - 1-hour data: 455 days  
+- Custom metrics can be pushed using PutMetricData API.  
+
+### Common Metrics by Service  
+
+| AWS Service  | Key Metrics |  
+|-------------|------------|  
+| EC2  | CPUUtilization, DiskReadOps, NetworkIn, StatusCheckFailed |  
+| RDS  | CPUUtilization, FreeableMemory, ReadIOPS, DBConnections |  
+| S3  | NumberOfObjects, BucketSizeBytes, GetRequests, PutRequests |  
+| Lambda  | Invocations, Errors, Duration, ConcurrentExecutions |  
+| ECS  | CPUUtilization, MemoryUtilization, RunningTaskCount |  
+| ALB  | RequestCount, HTTPCode_ELB_5XX, TargetResponseTime |  
+
+---
+
+## CloudWatch Logs  
+- Stores logs from AWS services and applications.  
+- Logs are grouped into log groups, and each log group has log streams.  
+- Logs can be ingested using:  
+  - CloudWatch Logs Agent  
+  - AWS Lambda  
+  - AWS SDK/API  
+- Log Retention: Default is indefinite, but can be configured (1 day to 10 years).  
+
+### Common Log Sources  
+- EC2 Logs (System logs, application logs)  
+- Lambda Logs (console.log in Node.js, print() in Python)  
+- VPC Flow Logs (Traffic logs for security monitoring)  
+- CloudTrail Logs (AWS API call history)  
+
+---
+
+## CloudWatch Alarms  
+- Threshold-based monitoring with automated responses.  
+- Can trigger SNS notifications, Auto Scaling actions, Lambda functions, or EC2 recovery.  
+- Supports three states:  
+  - OK – Metric within threshold  
+  - ALARM – Metric exceeds threshold  
+  - INSUFFICIENT_DATA – Not enough data to evaluate  
+
+### Types of Alarms  
+- Metric Alarms – Trigger based on a single metric.  
+- Composite Alarms – Combine multiple alarms for better monitoring.  
+
+---
+
+## CloudWatch Dashboards  
+- Customizable visual dashboards for AWS metrics and logs.  
+- Can include graphs, text widgets, and log query results.  
+- Supports multi-account & multi-region views.  
+
+---
+
+## CloudWatch Events (Amazon EventBridge)  
+- Used for event-driven automation.  
+- Can capture AWS API calls, state changes, and custom events.  
+- Can trigger Lambda, SNS, Step Functions, SQS, etc.  
+
+### Example Use Cases  
+- Start/Stop EC2 instances on schedule.  
+- Trigger Lambda when an S3 object is uploaded.  
+- Detect IAM policy changes and notify admins.  
+
+---
+
+## CloudWatch ServiceLens  
+- Provides end-to-end observability for applications.  
+- Integrated with AWS X-Ray for tracing.  
+- Helps identify bottlenecks, latencies, and failures.  
+
+---
+
+## CloudWatch Logs Insights  
+- Query logs in real-time using SQL-like syntax.  
+- Supports advanced filtering, aggregations, and visualization.  
+
+### Example Queries  
+
+Find most recent errors:  
+```sql  
+fields @timestamp, @message  
+| filter @message like /ERROR/  
+| sort @timestamp desc  
+| limit 10  
+```  
+
+Count logs per service:  
+```sql  
+stats count(*) by service  
+```  
+
+---
+
+## CloudWatch Synthetics  
+- Monitors APIs, URLs, and endpoints for availability.  
+- Uses Canary scripts to simulate user behavior.  
+- Helps detect downtime and latency issues.  
+
+---
+
+## CloudWatch Contributor Insights  
+- Identifies patterns in log data (e.g., most frequent IPs, API calls).  
+- Useful for security analysis and performance monitoring.  
+
+---
+
+## Pricing  
+- Metrics: First 10,000 metrics free, then $0.30 per metric/month.  
+- Logs: Ingestion costs ~$0.50 per GB, and storage ~$0.03 per GB/month.  
+- Alarms: Standard alarms ~$0.10 per alarm/month.  
+- Events: Free tier includes 1M events; after that, $1.00 per million events.  
+
+---
+
+## Best Practices  
+1. Use Alarms for critical metrics (e.g., CPU spikes, high error rates).  
+2. Enable Log Retention Policies to avoid unnecessary costs.  
+3. Use CloudWatch Logs Insights for efficient log analysis.  
+4. Integrate with AWS X-Ray for detailed tracing.  
+5. Leverage EventBridge for automated actions.  
+
+---
+
+Let me know if you need further customization! 🚀
