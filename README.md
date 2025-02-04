@@ -26,7 +26,7 @@ sudo systemctl restart apache2
 
 ```
 
-========================================================================================================
+=======================================================
 ## To add an HTTP server (httpd) alongside the CPU stress test and include the hostname in the output, you can modify the User Data script as follows:
 
 This script will:
