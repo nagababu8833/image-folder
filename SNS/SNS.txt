@@ -1,0 +1,87 @@
+## **Amazon Simple Notification Service (SNS) Overview**  
+
+### **What is AWS SNS?**  
+Amazon Simple Notification Service (SNS) is a **fully managed messaging service** that enables applications, services, and users to send notifications and 
+messages **securely, reliably, and at scale**. SNS supports **pub/sub messaging, SMS, email, and mobile push notifications**.  
+
+---
+
+### **Key Features of AWS SNS**  
+1. **Pub/Sub Messaging**  
+   - SNS follows the **publish-subscribe (pub/sub) model**, where a **publisher** sends a message to an **SNS topic**, and **multiple subscribers** receive it.
+   - Supports **multiple subscriber types**, including AWS Lambda, SQS, HTTP(S) endpoints, and email.
+
+2. **Multiple Protocols Supported**  
+   - **Amazon SQS:** Ensures message persistence for further processing.  
+   - **AWS Lambda:** Triggers serverless functions automatically.  
+   - **HTTP/HTTPS:** Delivers messages to web services and applications.  
+   - **Email & SMS:** Sends notifications to users directly.  
+   - **Mobile Push:** Works with platforms like Apple Push Notification Service (APNS), Firebase Cloud Messaging (FCM), and more.
+
+3. **Message Filtering**  
+   - Allows subscribers to **receive only relevant messages** using **message attributes and filter policies**.
+   - Reduces **unnecessary message processing** for subscribers.
+
+4. **High Availability and Durability**  
+   - SNS is a **fully managed** service with built-in **redundancy across multiple AWS Availability Zones**.
+   - Provides **at-least-once delivery** and **retries** for reliable messaging.
+
+5. **Security and Access Control**  
+   - Supports **IAM policies** to control access.
+   - Uses **encryption** (AWS KMS) to protect messages.
+   - Allows **private topics** for restricted access.
+
+6. **Event-Driven Integration**  
+   - Easily integrates with **AWS Lambda, Amazon S3, DynamoDB, CloudWatch, and EventBridge** for automated workflows.
+
+7. **Message Fanout**  
+   - A **single message** sent to an SNS topic can be **distributed to multiple subscribers**, enabling parallel processing.
+
+---
+
+### **Common Use Cases**  
+✅ **Application Notifications** – Sends alerts, reminders, and updates to users.  
+✅ **Fanout Architecture** – Distributes messages to multiple services (e.g., SNS to multiple SQS queues).  
+✅ **Event-Driven Processing** – Triggers Lambda functions for automated workflows.  
+✅ **Operational Alerts** – Notifies teams via SMS, email, or chat services.  
+✅ **Mobile Push Notifications** – Sends messages to iOS/Android apps.  
+
+---
+
+### **How AWS SNS Works?**
+1. **Create an SNS Topic** – A logical access point for messages.  
+2. **Subscribe Endpoints** – Add subscribers (SQS, Lambda, Email, etc.).  
+3. **Publish Messages** – Send a message to the SNS topic.  
+4. **Message Delivery** – SNS delivers messages to all subscribers.  
+
+---
+
+### **Pricing Model**  
+- **Pay-as-you-go** pricing based on:  
+  - **Number of messages published**  
+  - **Number of notifications delivered**  
+  - **Protocol type (e.g., SMS, email, HTTP, Lambda)**  
+
+> **Free Tier:** 1M SNS requests per month (for pub/sub messaging).  
+
+---
+
+### **Comparison with Other AWS Messaging Services**  
+
+| Feature          | SNS (Pub/Sub) | SQS (Queue) | EventBridge (Event Bus) |
+|-----------------|--------------|-------------|----------------|
+| **Message Type**  | Notifications | Queue Messages | Events |
+| **Processing**   | Fanout (one-to-many) | FIFO / Standard Queue | Event Routing |
+| **Subscribers**  | Multiple | Single Consumer per message | Multiple |
+| **Use Case**     | Alerts, Notifications | Decoupling, Delayed Processing | Event-driven workflows |
+
+---
+
+
+---
+
+### **Final Thoughts**  
+AWS SNS is an essential service for **event-driven architectures**, enabling seamless **real-time messaging** across distributed applications. 
+It is widely used in **microservices, serverless applications, and system monitoring** for its scalability, reliability, and integration capabilities.  
+
+Would you like me to help set up an SNS demo in Terraform? 🚀
