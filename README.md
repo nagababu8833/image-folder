@@ -25,3 +25,43 @@ EOF
 sudo systemctl restart apache2
 
 ```
+
+=======================================================
+## To add an HTTP server (httpd) alongside the CPU stress test and include the hostname in the output, you can modify the User Data script as follows:
+
+This script will:
+
+Install httpd (Apache HTTP Server).
+Start the httpd service.
+Stress the CPU using the stress tool.
+Output the hostname and the stress status to a simple web page served by the Apache server.
+### User Data Script:
+
+```
+
+#!/bin/bash
+# Update system packages
+dnf update -y
+
+# Install required packages (stress-ng and httpd)
+dnf install -y stress-ng httpd
+
+# Start and enable the Apache web server
+systemctl start httpd
+systemctl enable httpd
+
+# Get the hostname
+HOSTNAME=$(hostname)
+
+# Create an HTML file displaying the hostname
+echo "<html><body><h1>EC2 Instance CPU Stress Test</h1><p>Hostname: $HOSTNAME</p><p>CPU Stress Test Running...</p></body></html>" > /var/www/html/index.html
+
+# Start CPU stress test using 4 CPU cores for 10 minutes
+stress-ng --cpu 4 --timeout 600s &
+
+# Restart httpd to ensure changes take effect
+systemctl restart httpd
+
+
+```
+
