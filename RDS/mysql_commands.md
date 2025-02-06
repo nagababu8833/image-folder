@@ -99,6 +99,8 @@ Username: your_user
 Password: your_password
 Port: 3306
 
+## find ip address of RDS
+
 ```
 nslookup rds endpoint
 
