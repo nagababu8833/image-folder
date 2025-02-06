@@ -87,4 +87,14 @@ GRANT ALL PRIVILEGES ON db_name.* TO 'username'@'localhost';
 FLUSH PRIVILEGES; -- Apply changes
 ```
 
-Would you like any specific MySQL queries or explanations? 🚀
+
+### Connect MySQL Remotely
+From your local machine or another server, use:
+
+mysql -h your-ec2-public-ip -u your_user -p
+or using MySQL Workbench:
+
+Hostname: your-ec2-public-ip
+Username: your_user
+Password: your_password
+Port: 3306
