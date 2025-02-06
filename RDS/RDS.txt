@@ -16,11 +16,11 @@ Amazon Relational Database Service (AWS RDS) is a managed database service that 
 and scaling of relational databases in the AWS Cloud. It supports multiple database engines, including:  
 
 - Amazon Aurora (MySQL and PostgreSQL-compatible)  
-- MySQL  
-- PostgreSQL  
+- MySQL      (port number :3306)
+- PostgreSQL (Port number:5432)   
 - MariaDB  
 - SQL Server  
-- Oracle  
+- Oracle
 
 - Amazon Aurora (MySQL and PostgreSQL-compatible)  
 - MySQL         - mysql workbench tool
