@@ -1,0 +1,64 @@
+Got it! Here's a cleaner version without **bold** formatting:  
+
+---
+
+# AWS DynamoDB  
+
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
+It is designed for applications requiring consistent, single-digit millisecond latency at any scale.  
+
+## Key Features  
+1. Serverless and fully managed – No need to provision or manage servers.  
+2. High performance and low latency – Single-digit millisecond response times.  
+3. Scalability – Automatically scales to handle traffic increases.  
+4. Multi-region and global tables – Enables cross-region replication.  
+5. Built-in security – Encryption at rest and in transit.  
+6. Event-driven – Integrates with AWS Lambda for serverless workflows.  
+7. TTL (Time-To-Live) – Auto-delete expired data.  
+
+## Core Concepts  
+1. Tables – Stores your data.  
+2. Items – Similar to rows in relational databases.  
+3. Attributes – Similar to columns.  
+4. Primary key – Uniquely identifies each item.  
+   - Partition key (hash key) – Determines partitioning.  
+   - Sort key (range key) – Optional, enables sorting.  
+5. Indexes – For efficient querying.  
+   - Global secondary index (GSI) – Can query different attributes.  
+   - Local secondary index (LSI) – Uses the same partition key but different sort key.  
+
+## DynamoDB Access and Operations  
+- API Calls – PutItem, GetItem, UpdateItem, DeleteItem, Query, Scan  
+- AWS SDK – Supports multiple languages (Python, Java, Node.js, etc.)  
+- DynamoDB Streams – Captures item-level changes for real-time processing  
+- DynamoDB Accelerator (DAX) – In-memory caching for microsecond response times  
+
+## Example: Create a Table using AWS CLI  
+```sh
+aws dynamodb create-table \
+    --table-name Users \
+    --attribute-definitions AttributeName=UserID,AttributeType=S \
+    --key-schema AttributeName=UserID,KeyType=HASH \
+    --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
+```
+
+## Example: Insert an Item using AWS CLI  
+```sh
+aws dynamodb put-item \
+    --table-name Users \
+    --item '{"UserID": {"S": "123"}, "Name": {"S": "Alice"}, "Age": {"N": "30"}}'
+```
+
+## Example: Query Data using AWS CLI  
+```sh
+aws dynamodb get-item \
+    --table-name Users \
+    --key '{"UserID": {"S": "123"}}'
+```
+
+## Use Cases  
+- Session management (e.g., user authentication)  
+- Real-time analytics (e.g., IoT applications)  
+- Gaming leaderboards  
+- E-commerce catalogs  
+- Serverless applications (using AWS Lambda)  
