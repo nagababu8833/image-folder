@@ -98,3 +98,8 @@ Hostname: your-ec2-public-ip
 Username: your_user
 Password: your_password
 Port: 3306
+
+```
+nslookup rds endpoint
+
+```
