@@ -1,0 +1,54 @@
+RDS (Relational Database):
+===============================
+1.sql database: sql server, mysql server,oracle
+2.no sql databse: dynamodb, nosql
+
+sql:structured query langauage
+no sql: not only sql
+
+sno username password 
+1    ram      test@123
+2    raju     test@123
+3    venkat   test@123
+4    suresh   
+
+Amazon Relational Database Service (AWS RDS) is a managed database service that simplifies the setup, operation,
+and scaling of relational databases in the AWS Cloud. It supports multiple database engines, including:  
+
+- Amazon Aurora (MySQL and PostgreSQL-compatible)  
+- MySQL  
+- PostgreSQL  
+- MariaDB  
+- SQL Server  
+- Oracle  
+
+- Amazon Aurora (MySQL and PostgreSQL-compatible)  
+- MySQL         - mysql workbench tool
+- PostgreSQL    -workbench tool
+- MariaDB       - PgAdmin tool
+- MicrosoftSQL Server  - SSM tool
+- Oracle        - tod tool
+
+### Key Features of AWS RDS  
+1. Automated Backups & Snapshots – RDS automatically backs up your database and allows point-in-time recovery.  
+2. Multi-AZ Deployments – Provides high availability and failover support by replicating data across different a
+   vailability zones.  
+3. Read Replicas – Improve performance by creating read-only replicas.  
+4. Automatic Patching & Maintenance – AWS handles OS and DB engine updates.  
+5. Security – Supports encryption at rest (KMS) and in transit (SSL/TLS), IAM-based authentication, and 
+   VPC network isolation.  
+6. Scalability – Easily scale compute and storage without downtime.  
+7. Monitoring & Logging – Integrated with AWS CloudWatch, AWS CloudTrail, and Performance Insights.  
+
+### Use Cases  
+- Web and mobile applications requiring a managed relational database.  
+- Enterprise applications like ERP and CRM.  
+- High-availability applications with automatic failover.  
+- Scalable and cost-efficient data storage with replication.  
+
+### Pricing  
+AWS RDS pricing depends on:  
+- Database engine  
+- Instance type (e.g., t3.micro, m5.large)  
+- Storage (General Purpose SSD, Provisioned IOPS SSD, or Magnetic)  
+- Data transfer  
