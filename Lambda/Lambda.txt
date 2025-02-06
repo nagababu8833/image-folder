@@ -1,0 +1,55 @@
+AWS Lambda is a serverless compute service that allows you to run code in response to events without provisioning or managing servers. 
+It automatically scales and charges only for the compute time used.  
+
+### Key Features  
+- Event-driven execution (e.g., triggered by S3, DynamoDB, API Gateway, SNS, etc.)  
+- Supports multiple languages (Python, Node.js, Java, Go, .NET, etc.)  
+- Integrates with AWS services (S3, DynamoDB, Kinesis, SNS, SQS, etc.)  
+- Pay-per-use pricing (billed per request and execution time)  
+
+### Use Cases  
+1. API Backend – Used with API Gateway for building RESTful or GraphQL APIs.  
+2. Data Processing – Processes logs, transforms files, and ETL jobs with DynamoDB Streams or S3.  
+3. IoT & Real-time Processing – Handles IoT data, logs, and event-driven applications.  
+4. Automated Infrastructure – Runs cron jobs, auto-scales infrastructure with CloudWatch triggers.  
+5. Security & Compliance – Automates security checks, IAM policies, and audits.  
+
+### How to Create an AWS Lambda Function  
+
+1. Using AWS Console  
+   - Go to the AWS Lambda service.  
+   - Click "Create function" and choose "Author from scratch."  
+   - Enter function name, runtime (e.g., Python 3.9), and execution role.  
+   - Click "Create function."  
+   - Add a trigger (e.g., API Gateway, S3, etc.).  
+   - Write the Lambda handler function and deploy.  
+
+2. Using AWS CLI  
+```sh
+aws lambda create-function --function-name myLambdaFunction \
+  --runtime python3.9 --role arn:aws:iam::123456789012:role/lambda-execution-role \
+  --handler lambda_function.lambda_handler --zip-file fileb://function.zip
+```
+
+3. Using Terraform  
+```hcl
+resource "aws_lambda_function" "my_lambda" {
+  function_name = "myLambdaFunction"
+  runtime       = "python3.9"
+  role          = aws_iam_role.lambda_role.arn
+  handler       = "lambda_function.lambda_handler"
+  filename      = "lambda.zip"
+}
+```
+
+### Example Python AWS Lambda Code  
+```python
+import json
+
+def lambda_handler(event, context):
+    return {
+        "statusCode": 200,
+        "body": json.dumps("Hello from AWS Lambda!")
+    }
+```
+
