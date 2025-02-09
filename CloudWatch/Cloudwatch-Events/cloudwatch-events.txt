@@ -1,0 +1,102 @@
+Task:
+=====
+1.create ec2 instance
+2.create SNS topic
+3.create cloudwacth event rule in ec2 instance
+     1.stopped state 
+     2.teriminate state
+
+enviroments:
+----------
+beta
+qa
+prod
+
+
+dev
+test
+prod
+
+dev
+test
+preprod
+prod
+
+stopping beta and Qa servers on non-office hours
+
+9am to 5pm --- running 8 hrs
+5pm to 9 am -- stopping 16 hrs
+
+
+
+
+cron job:
+=========
+* * * * * *
+| | | | | |
+| | | | | +-- Year (optional)
+| | | | +---- Day of the week (0 - 7, where both 0 and 7 represent Sunday)
+| | | +------ Month (1 - 12)
+| | +-------- Day of the month (1 - 31)
+| +---------- Hour (0 - 23)
++------------ Minute (0 - 59)
+
+
+
+
+
+### **Amazon CloudWatch Events**
+Amazon **CloudWatch Events** is a service that allows you to **respond to system events in near real-time**.
+It helps automate AWS services by triggering actions when specific events occur. 
+
+---
+
+## **Key Features of CloudWatch Events**
+1. **Event-Driven Automation** – Trigger AWS services (e.g., Lambda, Step Functions, EC2, etc.) based on system events.
+2. **Scheduled Events** – Run periodic jobs using **cron** or **rate expressions**.
+3. **Real-Time Monitoring** – Detect and respond to state changes in AWS services.
+4. **Event Bus** – Receive events from AWS services or external sources and route them to different targets.
+
+---
+
+## **CloudWatch Events vs. EventBridge**
+CloudWatch Events has been **rebranded as Amazon EventBridge**. EventBridge provides **more advanced features**,
+including **third-party SaaS integrations**, schema registries, and improved event filtering.
+
+---
+
+## **How CloudWatch Events Work**
+1. **Event Sources**  
+   - AWS Services (e.g., EC2 state changes, S3 operations, Lambda executions)
+   - Custom events from applications
+   - Scheduled events (cron jobs)
+
+2. **Rules**  
+   - Define which events to capture.
+   - Specify conditions (e.g., "Trigger when an EC2 instance stops").
+   - Route events to targets.
+
+3. **Targets**  
+   - **AWS Lambda** – Run a function in response to an event.
+   - **SNS/SQS** – Send notifications or queue messages.
+   - **Step Functions** – Orchestrate workflows.
+   - **EC2 & ECS** – Start, stop, or terminate instances.
+   - **Kinesis Firehose** – Stream event data.
+
+---
+
+## **Example Use Cases**
+- **Automated EC2 Scaling**: Stop non-production instances at night and start them in the morning.
+- **Security Monitoring**: Trigger Lambda to respond to failed AWS console login attempts.
+- **Automated Backups**: Schedule RDS snapshot creation.
+- **Incident Response**: Send alerts when CloudTrail logs indicate suspicious activity.
+
+---
+
+## **Creating a CloudWatch Event Rule (AWS Console)**
+1. Go to **AWS CloudWatch** → **Events** → **Rules**.
+2. Click **Create Rule**.
+3. Choose **Event Source** (e.g., "EC2 instance state change").
+4. Define **Event Pattern** (e.g., trigger when instance stops).
+5. Choose **Target** (e.g., Lambda function).
+6. **Save and Enable** the rule.
