@@ -1,6 +1,8 @@
 AWS Lambda is a serverless compute service that allows you to run code in response to events without provisioning or managing servers. 
 It automatically scales and charges only for the compute time used.  
 
+https://pranitagughane7.medium.com/starting-and-stopping-ec2-instances-using-aws-lambda-and-cloudwatch-fcbb87861092
+
 ### Key Features  
 - Event-driven execution (e.g., triggered by S3, DynamoDB, API Gateway, SNS, etc.)  
 - Supports multiple languages (Python, Node.js, Java, Go, .NET, etc.)  
@@ -24,23 +26,7 @@ It automatically scales and charges only for the compute time used.
    - Add a trigger (e.g., API Gateway, S3, etc.).  
    - Write the Lambda handler function and deploy.  
 
-2. Using AWS CLI  
-```sh
-aws lambda create-function --function-name myLambdaFunction \
-  --runtime python3.9 --role arn:aws:iam::123456789012:role/lambda-execution-role \
-  --handler lambda_function.lambda_handler --zip-file fileb://function.zip
-```
 
-3. Using Terraform  
-```hcl
-resource "aws_lambda_function" "my_lambda" {
-  function_name = "myLambdaFunction"
-  runtime       = "python3.9"
-  role          = aws_iam_role.lambda_role.arn
-  handler       = "lambda_function.lambda_handler"
-  filename      = "lambda.zip"
-}
-```
 
 ### Example Python AWS Lambda Code  
 ```python

@@ -28,6 +28,13 @@ stopping beta and Qa servers on non-office hours
 5pm to 9 am -- stopping 16 hrs
 
 
+start ec2 instance - 9am
+stop ec2 instance - 5pm
+
+cloudwatch event-01 --- 5pm --target --lambda function -- stop ec2 instance 
+cloudwatch event-02 --- 9pm -- target --lambda function-- start ec2 indtance
+
+
 
 
 cron job:
