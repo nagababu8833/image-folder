@@ -1,0 +1,79 @@
+Awscloud front:
+=======================
+
+AWS CloudFront is a Content Delivery Network (CDN) service that securely delivers data, videos, applications, and
+APIs to customers globally with low latency and high transfer speeds. It caches content in edge locations worldwide, 
+reducing the load on the origin server and improving performance.
+
+alternatives: azure (Azure cdn),cloud fare
+
+Aws Global Infra Structure:
+---------------------------
+1.Regions (30)
+2.Avalibality zones (90)
+3.Data centers (3)
+4.Edge Locations (410+) -->pop(point of presence)
+
+
+distribution:
+------------
+origin -----> s3,Ec2,elb,mediacore
+if using outside (server ip, urls)
+
+try to access expiration time(24 hours) 
+set (0-24 hours or maximum)
+
+update (invalidate)
+
+data saving:
+-----------
+s3 --> Route53 -->distibution(abc.cloudfornt.com)(end point or url) -->browse
+
+example :
+-----------
+abc.com ---> try to access
+
+1.Dns Query
+2.Data copy and site Replication
+
+(Draw digram)
+
+manged by content delivery network(CDN)
+
+  
+
+### Key Features  
+1. Global Content Delivery – Distributes content across multiple edge locations for fast and reliable access.  
+2. Caching & Performance Optimization – Reduces latency by caching content at edge locations.  
+3. Security Features – Integrates with AWS WAF, AWS Shield, and supports SSL/TLS encryption.  
+4. Integration with AWS Services – Works with S3, EC2, Elastic Load Balancer (ELB), and Lambda@Edge for custom logic 
+    at edge locations.  
+5. Custom Content Delivery Rules – Supports URL-based routing, query strings, and cache invalidations.  
+6. Cost-Effective – Pay-as-you-go pricing with free-tier options.  
+
+### Common Use Cases  
+- Website Acceleration – Reduces load time for web pages.  
+- Streaming Media – Delivers video-on-demand (VOD) and live streaming content.  
+- API Acceleration – Reduces latency for API requests.  
+- Security & DDoS Protection – Shields against malicious traffic using AWS WAF & AWS Shield.  
+- Software Distribution – Speeds up delivery of large files like software updates.  
+
+### How AWS CloudFront Works  
+1. User Request → A user requests content (e.g., an image, video, or webpage).  
+2. Edge Location Lookup → CloudFront routes the request to the nearest edge location.  
+3. Cache Check → If the content is cached, CloudFront serves it directly.  
+4. Fetch from Origin (if necessary) → If not cached, CloudFront retrieves content from the origin (S3, EC2, or 
+    an external server).  
+5. Cache Update & Delivery → CloudFront caches the response and delivers it to the user.  
+
+### AWS CloudFront with S3 Example  
+1. Store static website content in an S3 bucket.  
+2. Configure CloudFront to use the S3 bucket as the origin.  
+3. Enable SSL/TLS for HTTPS access.  
+4. Restrict direct S3 access and serve content via CloudFront.  
+5. Use Signed URLs or Signed Cookies for restricted access.  
+
+### CloudFront Pricing  
+- Data Transfer Out – Charged based on location and amount of data.  
+- Request Pricing – Different rates for HTTP and HTTPS requests.  
+- Invalidation Requests – First 1,000 paths per month are free.  
