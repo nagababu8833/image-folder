@@ -10,7 +10,7 @@ Roles For Project:
 1.AmazonLambdaBasicEXecutionRole
 2.AmazonDynomoDbFullAccess
 
-studientid
+email
 
 # AWS DynamoDB  
 
