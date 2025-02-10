@@ -10,6 +10,8 @@ Roles For Project:
 1.AmazonLambdaBasicEXecutionRole
 2.AmazonDynomoDbFullAccess
 
+studientid
+
 # AWS DynamoDB  
 
 Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
