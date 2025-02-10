@@ -5,6 +5,11 @@ project url
 
 https://github.com/avizway1/aws-projects/blob/main/Project-4%20Lambda%20API%20Gateway%20and%20DynamoDB/projectfunction.zip
 
+Roles For Project:
+==================
+1.AmazonLambdaBasicEXecutionRole
+2.AmazonDynomoDbFullAccess
+
 # AWS DynamoDB  
 
 Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
