@@ -1,0 +1,32 @@
+### AWS CodeCommit Overview  
+
+#### What is AWS CodeCommit?  
+AWS CodeCommit is a fully managed source control service that hosts private Git repositories. It allows teams to collaborate on code in a secure, scalable, and high-performance environment, eliminating the need for self-hosted version control systems.  
+
+#### Key Features  
+- Fully managed: No need to maintain infrastructure, updates, or scaling.  
+- Secure: Uses AWS Identity and Access Management (IAM) for authentication and authorization.  
+- Scalable: Handles large repositories and numerous concurrent users.  
+- Integrated with AWS services: Works with AWS CodeBuild, AWS CodePipeline, AWS Lambda, and other DevOps tools.  
+- Supports Git: Fully compatible with Git commands and tools.  
+- High availability & durability: Data is stored redundantly across multiple AWS Availability Zones.  
+- Encryption: Supports data encryption at rest and in transit.  
+
+#### Use Cases  
+- Collaborative software development: Teams can work on shared repositories.  
+- CI/CD pipelines: Integrates with AWS CodePipeline and AWS CodeBuild.  
+- Secure version control: Ideal for organizations needing private, scalable repositories.  
+- Infrastructure-as-code (IaC): Store and manage Terraform, AWS CDK, and CloudFormation templates.  
+
+#### Integration with Other AWS DevOps Tools  
+- AWS CodeBuild: Automate build and test processes.  
+- AWS CodeDeploy: Deploy applications to AWS services like EC2, Lambda, and ECS.  
+- AWS CodePipeline: Automate CI/CD workflows.  
+- AWS IAM: Manage user access and permissions.  
+
+#### Getting Started  
+1. Create a repository – Use the AWS Console, CLI, or SDK.  
+2. Clone the repository – Use Git commands (`git clone`).  
+3. Push code – Add, commit, and push changes using Git.  
+4. Set up CI/CD – Connect with AWS CodePipeline and CodeBuild for automation.  
+
