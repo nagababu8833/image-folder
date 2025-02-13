@@ -1,0 +1,45 @@
+AWS API Gateway: 
+=================
+=================
+
+AWS API Gateway is a fully managed service that enables developers to create, publish, maintain,
+monitor, and secure APIs at any scale. It acts as an entry point for applications, allowing them to interact with 
+AWS services, databases, and backend systems.
+
+---
+
+### Key Features of API Gateway  
+✔ RESTful & WebSocket APIs – Supports both REST and WebSocket APIs.  
+✔ Integration with AWS Services – Works seamlessly with Lambda, DynamoDB, S3, and more.  
+✔ Security & Authentication – Supports IAM policies, Cognito, and API keys.  
+✔ Rate Limiting & Throttling – Protects against abuse and excessive traffic.  
+✔ Caching – Reduces backend load by caching responses.  
+✔ Logging & Monitoring – Integrated with CloudWatch for insights.
+
+---
+
+### Types of APIs in API Gateway  
+1. REST API – Traditional API that supports RESTful endpoints.  
+2. HTTP API – A lightweight version of REST API with lower cost and better performance.  
+3. WebSocket API – Enables real-time, bi-directional communication.
+
+---
+
+### Common Use Cases  
+✅ Serverless applications (API Gateway + AWS Lambda)  
+✅ Microservices API management  
+✅ Secure API endpoints with IAM and Cognito  
+✅ Rate limiting and request throttling  
+✅ Real-time applications using WebSocket APIs  
+
+---
+
+### Example: API Gateway with AWS Lambda  
+1. Create an API Gateway REST API.  
+2. Define an HTTP method (GET, POST, etc.).  
+3. Integrate with an AWS Lambda function.  
+4. Deploy and test the API.  
+5. Secure with IAM roles, API keys, or Cognito.  
+
+---
+
