@@ -9,6 +9,19 @@ AWS services, databases, and backend systems.
 api gate way which us help us to establish communication betwen two differnt application.
 
 ---
+3-Tier architecture
+
+1. presentation Layer
+2. Business Layer
+3. Data Layer
+
+1.INSERT()
+2.UPDATE()
+3.SELECT()
+4.DELETE()
+
+https://jsonplaceholder.typicode.com/posts/1
+
 
 ### Key Features of API Gateway  
 ✔ RESTful & WebSocket APIs – Supports both REST and WebSocket APIs.  
