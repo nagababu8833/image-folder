@@ -6,6 +6,8 @@ AWS API Gateway is a fully managed service that enables developers to create, pu
 monitor, and secure APIs at any scale. It acts as an entry point for applications, allowing them to interact with 
 AWS services, databases, and backend systems.
 
+api gate way which us help us to establish communication betwen two differnt application.
+
 ---
 
 ### Key Features of API Gateway  
