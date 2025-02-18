@@ -1,0 +1,72 @@
+AWS CDK (Cloud Development Kit) is an open-source framework that lets you define cloud infrastructure in code and provision it through AWS CloudFormation. Instead of writing raw CloudFormation YAML or JSON, you can use programming languages like TypeScript, Python, Java, C#, and Go to define your cloud resources.  
+
+## Key Features of AWS CDK  
+1. Infrastructure as Code (IaC) – Define AWS resources using modern programming languages.  
+2. Constructs – Reusable components that represent cloud resources (e.g., S3 buckets, Lambda functions).  
+3. High-level Abstractions – Simplifies complex AWS configurations (e.g., a simple `Bucket` construct handles an S3 bucket with permissions).  
+4. Best Practices by Default – Automatically applies security and performance best practices.  
+5. Cross-Environment Deployment – Easily deploy stacks to multiple AWS accounts and regions.  
+6. Custom Constructs – Build and share reusable components within teams.  
+
+## AWS CDK Components  
+1. Constructs – The building blocks of AWS CDK (L1, L2, and L3 abstractions).  
+2. Stacks – A unit of deployment, representing a CloudFormation stack.  
+3. App – The entry point that contains one or more stacks.  
+
+## Getting Started  
+1. Install AWS CDK CLI  
+   ```sh
+   npm install -g aws-cdk
+   ```
+2. Initialize a New CDK Project  
+   ```sh
+   cdk init app --language=typescript
+   ```
+3. Add AWS Resources (Example: S3 Bucket)  
+   Modify `lib/my-stack.ts` (for TypeScript projects):  
+   ```typescript
+   import * as cdk from 'aws-cdk-lib';
+   import { Construct } from 'constructs';
+   import * as s3 from 'aws-cdk-lib/aws-s3';
+
+   export class MyStack extends cdk.Stack {
+       constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+           super(scope, id, props);
+
+           new s3.Bucket(this, 'MyBucket', {
+               versioned: true
+           });
+       }
+   }
+   ```
+4. Synthesize CloudFormation Template  
+   ```sh
+   cdk synth
+   ```
+5. Deploy the Stack  
+   ```sh
+   cdk deploy
+   ```
+6. Destroy the Stack  
+   ```sh
+   cdk destroy
+   ```
+
+## CDK Constructs: L1, L2, and L3  
+- L1 (Low-level Constructs) – Direct CloudFormation resource mappings (`CfnBucket` for S3).  
+- L2 (Higher-level Constructs) – Simplifies resource configurations (`s3.Bucket`).  
+- L3 (Patterns) – Multi-service best-practice implementations (`aws-cdk-lib/aws-s3-deployment`).  
+
+## CDK vs Terraform vs CloudFormation  
+| Feature | AWS CDK | Terraform | CloudFormation |  
+|---------|--------|-----------|---------------|  
+| Language Support | Multiple (TS, Python, Java, etc.) | HCL | YAML/JSON |  
+| State Management | CloudFormation | External (Terraform State) | CloudFormation |  
+| Reusability | High (OOP, Constructs) | Modules | Low |  
+| Deployment Speed | Faster (Optimized) | Medium | Slower |  
+
+## Common Use Cases  
+- Serverless applications (Lambda, API Gateway, DynamoDB)  
+- Infrastructure automation  
+- CI/CD pipelines  
+- Multi-region deployments  
