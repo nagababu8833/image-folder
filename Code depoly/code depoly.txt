@@ -1,0 +1,94 @@
+AWS CodeDeploy is a fully managed deployment service that automates software deployments to various compute 
+services like Amazon EC2, AWS Lambda, and on-premises servers. It helps developers deploy applications 
+without downtime and with minimal risk.  
+
+---
+
+### Key Features of AWS CodeDeploy  
+- Supports Multiple Platforms – Deploy to EC2, Lambda, ECS, or on-premises servers  
+- Automates Deployments – Reduces manual work and ensures consistency  
+- Rollback Support – Automatically rollback to the previous version in case of failures  
+- Blue/Green & In-Place Deployments – Helps with zero-downtime deployments  
+- Integration with AWS Services – Works well with CodePipeline, CloudWatch, and IAM  
+
+---
+
+### Types of Deployment in AWS CodeDeploy
+1. In-Place Deployment  
+   - Stops the application on existing instances, deploys the new version, and restarts it.  
+   - Might cause downtime.  
+   - Used for EC2 and on-premises instances.  
+
+2. Blue/Green Deployment  
+   - Deploys the new version to a separate environment and then switches traffic.  
+   - Provides zero-downtime deployment.  
+   - Used for EC2, ECS, and Lambda deployments.  
+
+---
+
+### Components of AWS CodeDeploy
+1. Application – Logical container for deployment.  
+2. Deployment Group – A set of EC2 instances, Lambda functions, or ECS services targeted for deployment.  
+3. Deployment Configuration – Specifies the rules for rolling out updates (e.g., CodeDeployDefault.AllAtOnce).  
+4. AppSpec File (appspec.yml) – Defines scripts and configurations for deployment.  
+5. Hooks & Lifecycle Events – Allows executing scripts before/after deployment phases.  
+
+---
+
+### AppSpec File (Example for EC2/Linux)
+The appspec.yml file is crucial in CodeDeploy. It defines how the application is deployed and which scripts should run.
+  
+
+```yaml
+version: 0.0  
+os: linux  
+files:
+  - source: /
+    destination: /var/www/html
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/start_application.sh
+      timeout: 300
+      runas: root
+```
+
+---
+
+### Deployment Process in AWS CodeDeploy
+1. Developer pushes code to a source repository (e.g., GitHub, S3, CodeCommit).  
+2. CodeDeploy fetches the code and follows the instructions in appspec.yml.  
+3. Deployment Lifecycle Hooks execute scripts to configure the environment.  
+4. CodeDeploy updates the application on EC2, ECS, or Lambda.  
+5. Verification & rollback (if needed) ensures a successful deployment.  
+
+---
+
+### AWS CodeDeploy with AWS CodePipeline
+- CodeDeploy integrates with AWS CodePipeline for CI/CD automation.  
+- Pipeline Stages:  
+  1. Source (GitHub, CodeCommit, S3)  
+  2. Build (AWS CodeBuild)  
+  3. Deploy (AWS CodeDeploy)  
+
+---
+
+### AWS CodeDeploy Pricing
+- No additional cost for EC2/on-prem deployments (only pay for AWS resources used).  
+- Lambda deployment pricing is based on the number of updates and compute time.  
+
+---
+
+### Interview Questions on AWS CodeDeploy
+1. What is AWS CodeDeploy, and how does it work?  
+2. What are the differences between In-Place and Blue/Green Deployments?  
+3. What is an appspec.yml file, and what does it contain?  
+4. How do you handle rollback in AWS CodeDeploy?  
+5. Explain the lifecycle hooks in AWS CodeDeploy.  
+6. How does AWS CodeDeploy integrate with AWS CodePipeline?  
+7. What are the common failure scenarios in AWS CodeDeploy, and how do you troubleshoot them?  
+
+---

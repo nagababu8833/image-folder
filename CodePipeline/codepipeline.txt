@@ -1,0 +1,62 @@
+## AWS CodePipeline Overview  
+
+### What is AWS CodePipeline?  
+AWS CodePipeline is a fully managed continuous integration and continuous delivery (CI/CD) service
+that helps automate the build, test, and deployment phases of your release process. 
+It integrates with various AWS services like AWS CodeBuild, AWS CodeDeploy, 
+and third-party tools like GitHub, Jenkins, and Bitbucket.  
+
+---
+
+### Key Features of AWS CodePipeline  
+1. Automated workflow – Automates code changes from commit to deployment.  
+2. Integration support – Works with AWS services (CodeBuild, CodeDeploy) and 
+   third-party tools (Jenkins, GitHub, etc.).  
+3. Parallel execution – Supports parallel execution of multiple workflows.  
+4. Manual approvals – Allows human intervention at key stages before deployment.  
+5. Custom actions – Enables custom build and deployment actions.  
+
+---
+
+### AWS CodePipeline Architecture  
+CodePipeline consists of multiple stages, where each stage has actions such as:  
+- Source stage – Retrieves the source code from AWS CodeCommit, GitHub, or S3.  
+- Build stage – Compiles and builds the application using AWS CodeBuild or third-party tools.  
+- Test stage – Runs unit, integration, and performance tests.  
+- Deploy stage – Deploys the built artifact using AWS CodeDeploy, ECS, EKS, or other services.  
+
+---
+
+### Steps to Create an AWS CodePipeline  
+
+1. Set up the source repository  
+   - Store your code in AWS CodeCommit, GitHub, or Amazon S3.  
+
+2. Configure the build process  
+   - Use AWS CodeBuild or Jenkins to compile and package the code.  
+
+3. Define the deployment strategy  
+   - Deploy the application using AWS CodeDeploy, ECS, EKS, or Lambda.  
+
+4. Add testing and approval stages (optional)  
+   - Run automated tests using AWS CodeBuild.  
+   - Add a manual approval stage before deployment.  
+
+5. Monitor and optimize  
+   - Use Amazon CloudWatch and AWS CloudTrail for logging and monitoring.  
+
+---
+
+
+
+### AWS CodePipeline vs. Azure DevOps Pipelines
+| Feature | AWS CodePipeline | Azure DevOps Pipelines |
+|---------|----------------|-----------------------|
+| Service type | Managed CI/CD | Managed CI/CD |
+| Source control | CodeCommit, GitHub, S3 | Azure Repos, GitHub, Bitbucket |
+| Build system | CodeBuild, Jenkins | Azure DevOps Build, Jenkins |
+| Deployment | CodeDeploy, ECS, Lambda | Azure App Services, Kubernetes |
+| Pricing | Pay-as-you-go | Included in Azure DevOps |
+
+---
+
